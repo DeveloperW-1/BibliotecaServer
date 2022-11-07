@@ -56,14 +56,14 @@ class autor
         // Validar resultado
         if(!$rst)
             die('Error al ejecutar la consulta: '. $sql);
-        $this->Id = $db->insert_id;
-        return true;
-    }
+            $this->Id = $db->insert_id;
+            return true;
+        }
 
     public function BuscarPorNombresApellidos(string $nombresApellidos)
     {
         if(empty($nombresApellidos)){
-            return 'Cadena Vacia';
+            return null;
         }
         // se quitan los espacios al inicio y al fin de la cadena (trim), y se separo por cada espacio que haya en la cadena (explode)
         $enPartes = explode(' ', trim($nombresApellidos));
@@ -73,7 +73,7 @@ class autor
         }else if(count($enPartes) > 1){ // En caso de que la cadena tenga mas de un elemento se realiza la consulta SQL
            for ($i = 0; $i < count($enPartes); $i++) {
                 if($i == 0){
-                    $sql .= "CONCAT(Nombres, ' ', Apellidos) like '%".$enPartes[$i]."%'";
+                    $sql .= "CONCAT(Nombres, ' ', Apellidos) like '%".$enPartes[0]."%'";
                 }else{
                     $sql .= "OR CONCAT(Nombres, ' ', Apellidos) like '%".$enPartes[$i]."%'";
                 }

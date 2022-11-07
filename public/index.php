@@ -108,18 +108,17 @@ require '../src/libs/Validacion.php';
 $otro = new autor();
 $db = new MiConexion();
 $sql = $otro->BuscarPorNombresApellidos("prueba");
-if($sql == "Cadena Vacia")
+if($sql == null)
 {
     echo "Cadena Vacia";
-}else
+}else if(!empty($sql))
 {
     $rst = $db->query($sql);
     if($rst->num_rows >= 1){
-        $autor = $rst->fetch_object();
-      foreach ($autor as $result) {
-        echo $autor->Nombres;
+        while($autor = $rst->fetch_object()){
+            echo nl2br("Nombres : $autor->Nombres Apellidos : $autor->Apellidos\n");
+        }
       }
     }else{
-        echo "fallo";
+        echo "No se encontro el Autor";
     }
-}
