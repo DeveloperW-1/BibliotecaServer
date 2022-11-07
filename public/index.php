@@ -103,3 +103,23 @@ require '../src/libs/Validacion.php';
 //     echo 'Registrado Nombre : ' . $Autor->Nombres;
 // else
 //     echo 'Error: Hubo un error en los datos proporcionados'; 
+
+// Poner a prueba buscar por Nombre y Apellidos
+$otro = new autor();
+$db = new MiConexion();
+$sql = $otro->BuscarPorNombresApellidos("prueba");
+if($sql == "Cadena Vacia")
+{
+    echo "Cadena Vacia";
+}else
+{
+    $rst = $db->query($sql);
+    if($rst->num_rows >= 1){
+        $autor = $rst->fetch_object();
+      foreach ($autor as $result) {
+        echo $autor->Nombres;
+      }
+    }else{
+        echo "fallo";
+    }
+}
