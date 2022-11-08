@@ -60,4 +60,14 @@ class editoriales
             $this->Id = $db->insert_id;
             return true;
     }
+
+    public function BuscarPorEntrada(string $busqueda)
+    {
+        if(empty($busqueda)){
+            return null;
+        }else{
+            $sql = sprintf("SELECT * FROM Editoriales WHERE Nombre = ('%s')", $busqueda);
+        }
+        return $sql;
+    }
 }

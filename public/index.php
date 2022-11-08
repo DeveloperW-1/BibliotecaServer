@@ -143,3 +143,21 @@ require '../src/libs/Validacion.php';
 // }else{
 //     echo nl2br("la Editoial no se guardo exitosamente\n");
 // }
+
+// Probando la funcion de BucarPorEntrada
+
+// $editorial = new editoriales();
+// $sql = $editorial->BuscarPorEntrada("prueba 1");
+// if(empty($sql)){
+//     echo "Error en la consulta";
+// }else if(!empty($sql)){
+//     $db = new MiConexion();
+//     $rst = $db->query($sql);
+//     if($rst->num_rows == 1){
+//         print($rst->fetch_object()->Nombre);
+//     }else if($rst->num_rows > 1){
+//         while($editorial = $rst->fetch_object()){
+//             echo nl2br("Editorial encontrada(s)\nResultados\n$editorial->Nombre\n");
+//         }
+//     }
+// }
