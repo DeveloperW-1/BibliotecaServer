@@ -105,9 +105,10 @@ require '../src/libs/Validacion.php';
 //     echo 'Error: Hubo un error en los datos proporcionados'; 
 
 // Poner a prueba buscar por Nombre y Apellidos
+
 // $otro = new autor();
 // $db = new MiConexion();
-// $sql = $otro->BuscarPorNombresApellidos("prueba");
+// $sql = $otro->BuscarPorNombresApellidos("");
 // if($sql == null){
 //     echo "Cadena Vacia";
 // }else if(!empty($sql)){
@@ -116,9 +117,9 @@ require '../src/libs/Validacion.php';
 //     while($autor = $rst->fetch_object()){
 //         echo nl2br("Nombres : $autor->Nombres Apellidos : $autor->Apellidos\n");
 //     }
+//     }else{
+//         echo "No se encontro el Autor";
 //     }
-// }else{
-//     echo "No se encontro el Autor";
 // }
 
 // Probando funciones agregadas al la clase editoriales
