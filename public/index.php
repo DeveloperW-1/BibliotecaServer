@@ -105,20 +105,41 @@ require '../src/libs/Validacion.php';
 //     echo 'Error: Hubo un error en los datos proporcionados'; 
 
 // Poner a prueba buscar por Nombre y Apellidos
-$otro = new autor();
-$db = new MiConexion();
-$sql = $otro->BuscarPorNombresApellidos("prueba");
-if($sql == null)
-{
-    echo "Cadena Vacia";
-}else if(!empty($sql))
-{
-    $rst = $db->query($sql);
-    if($rst->num_rows >= 1){
-        while($autor = $rst->fetch_object()){
-            echo nl2br("Nombres : $autor->Nombres Apellidos : $autor->Apellidos\n");
-        }
-      }
-    }else{
-        echo "No se encontro el Autor";
-    }
+// $otro = new autor();
+// $db = new MiConexion();
+// $sql = $otro->BuscarPorNombresApellidos("prueba");
+// if($sql == null){
+//     echo "Cadena Vacia";
+// }else if(!empty($sql)){
+//     $rst = $db->query($sql);
+//     if($rst->num_rows >= 1){
+//     while($autor = $rst->fetch_object()){
+//         echo nl2br("Nombres : $autor->Nombres Apellidos : $autor->Apellidos\n");
+//     }
+//     }
+// }else{
+//     echo "No se encontro el Autor";
+// }
+
+// Probando funciones agregadas al la clase editoriales
+
+// $editorial = new editoriales();
+// if(editoriales::BuscarPorID(1)){
+//     echo nl2br("Editoial encontrada\n");
+// }else{
+//     echo nl2br("Editoial no encontrada\n");
+// }
+// if(editoriales::Existe(1)){
+//     echo nl2br("Editoial existe\n ");
+// }else{
+//     echo nl2br("Editoial no existe\n");
+// }
+
+// Probando la funcion guardar de la clase editoriales
+
+// $editorial->Nombre = "prueba 1";
+// if($editorial->Guardar()){
+//     echo nl2br("Editoial guardada exitosamente con el ID : $editorial->Id\n");
+// }else{
+//     echo nl2br("la Editoial no se guardo exitosamente\n");
+// }
